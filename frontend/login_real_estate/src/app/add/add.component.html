@@ -1,0 +1,93 @@
+
+  <div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+     <button routerLink="/postproperty"><i style="font-size:24px" class="fa">&#xf191;</i></button>
+    
+  
+  <form #addForm="ngForm" (ngSubmit)="saveProp()" class="cont">
+   <h1>ADD PROPERTY</h1>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input size="50" name="location" type="text" class="form-control" [(ngModel)]="pro.location" #location=ngModel required pattern="[A-Za-z]{3,}"
+      [class.is-invalid]="location.invalid && location.touched">
+     <!-- ><small class="text-danger"[class.d-none]="username.valid || username.untouched">Username is a required field</small><!-->
+    <div *ngIf="location.errors && (location.invalid && location.touched)">
+      <small class="text-danger" *ngIf="location.errors.required">Location is required field</small>
+      <small class="text-danger" *ngIf="location.errors.pattern">Enter the valid Location"</small>
+    </div>
+    
+    </div>
+    
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input size="50" name="address" type="text" class="form-control" [(ngModel)]="pro.address" #address=ngModel required pattern="[a-zA-Z  ,]{3,50}$"
+      [class.is-invalid]="address.invalid && address.touched">
+     <!-- ><small class="text-danger"[class.d-none]="username.valid || username.untouched">Username is a required field</small><!-->
+    <div *ngIf="address.errors && (address.invalid && address.touched)">
+      <small class="text-danger" *ngIf="address.errors.required">Address is required field</small>
+      <small class="text-danger" *ngIf="address.errors.pattern">Enter the valid Address"</small>
+    </div>
+  </div>
+
+    <!-- <div class="form-group">
+      <label for="propertyCategory">Category:</label>
+      <input size="50" name="propertyCategory" type="text" class="form-control" [(ngModel)]="pro.propertyCategory" #propertyCategory=ngModel required 
+      [class.is-invalid]="propertyCategory.invalid && propertyCategory.touched">
+     
+    <div *ngIf="propertyCategory.errors && (propertyCategory.invalid && propertyCategory.touched)">
+      <small class="text-danger" *ngIf="propertyCategory.errors.required">Category is required field</small>
+      <small class="text-danger" *ngIf="propertyCategory.errors.pattern">Enter the valid Address"</small>
+    </div>
+  </div> -->
+
+ <label>Category</label>
+   <select [(ngModel)] ="pro.propertyCategory" name="category"class="form-control" required>
+      <option [ngValue]="undefined" selected>Select one Category</option>
+     <option *ngFor = "let c of propertyCategory" [ngValue]="c">{{c}}</option>
+     </select>
+
+     <label>Type</label>
+     <select [(ngModel)] ="pro.propertyType" name="type"class="form-control" required>
+        <option [ngValue]="undefined" selected>Select one Type</option>
+       <option *ngFor = "let t of propertyType" [ngValue]="t">{{t}}</option>
+       </select>
+  
+  <!-- <div class="form-group">
+    <label for="propertyType">Property Type:</label>
+    <input size="50" name="propertyType" type="text" class="form-control" [(ngModel)]="pro.propertyType" #propertyType=ngModel required 
+    [class.is-invalid]="propertyType.invalid && propertyType.touched">
+    <div *ngIf="propertyType.errors && (propertyType.invalid && propertyType.touched)">
+    <small class="text-danger" *ngIf="propertyType.errors.required">Property Type is required field</small>
+    <small class="text-danger" *ngIf="propertyType.errors.pattern">Enter the valid Type"</small>
+  </div>
+</div> -->
+
+<div class="form-group">
+  <label for="contact">Contact:</label>
+  <input type="text" class="form-control" placeholder="Enter Contact Number" name="contact" [(ngModel)]="pro.contact" required pattern="^[6-9]\d{9}$" #contact="ngModel"
+     [class.is-invalid]="contact.invalid && contact.touched">
+  <div *ngIf="contact.errors && (contact.invalid && contact.touched)">
+    <small class="text-danger" *ngIf="contact.errors.required">Contact is required field</small>
+    <small class="text-danger" *ngIf="contact.errors.pattern">Enter the valid contact"</small>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="price">Property Price:</label>
+  <input size="50" name="price" type="number" class="form-control" [(ngModel)]="pro.price" #price=ngModel 
+  [class.is-invalid]="price.invalid && price.touched">
+ <!-- ><small class="text-danger"[class.d-none]="username.valid || username.untouched">Username is a required field</small><!-->
+<div *ngIf="price.errors && (price.invalid && price.touched)">
+  <small class="text-danger" *ngIf="price.errors.required">Property Type is required field</small>
+  <small class="text-danger" *ngIf="price.errors.pattern">Enter the valid Type"</small>
+</div>
+</div>
+    
+    <button type="submit" class="btn btn-primary btn-pull-right">Submit</button>
+</form>
+</div>
+
+
+
+

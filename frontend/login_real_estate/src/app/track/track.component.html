@@ -1,0 +1,28 @@
+<div class="container">
+  <br>
+  <form (ngSubmit)="trackProp()" >
+    <label >Visitor Id :</label>
+    <input  placeholder="Enter visitorId" type="text" [(ngModel)]="visitorId" ngModel
+    name="visitorId">
+    <button  type="submit" class="btn btn-info">Track Property</button>
+</form>
+<br>
+  <table class="table table-dark">
+    <thead >
+      <tr>
+        <th>Visitor Id</th>
+        <th>Property Id</th>
+        <th>Location</th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let track of track">
+        <td>{{track.visitorId}}</td>
+        <td>{{track.propertyId}}</td>
+        <td>{{track.location}}</td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+
+

@@ -1,0 +1,32 @@
+<body>
+  <div class="container">
+      <form #loginform="ngForm" (ngSubmit)="loginAdmin()" class="cont">
+      <h2 style="text-align:left; color:rgb(36, 33, 33)" >Login</h2>
+      <small class="text-danger">{{msg}}</small>
+      <div class="form-group">
+      <label for="email">Email:</label>
+      <input size="40" type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="user.email"  required pattern="^[A-Za-z0-9_.-]+@(.+)$" #email="ngModel"
+      [class.is-invalid]="email.invalid && email.touched">
+       <div *ngIf="email.errors && (email.invalid && email.touched)">
+        <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
+        <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid Email"</small>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter Password" name="password" [(ngModel)]="user.password" required  #password="ngModel"
+        [class.is-invalid]="password.invalid && password.touched">
+        <div *ngIf="password.errors && (password.invalid && password.touched)">
+          <small class="text-danger" *ngIf="password.errors.required">Password is required field</small>
+          <small class="text-danger" *ngIf="password.errors.pattern">Enter the valid Password"</small>
+        </div>
+      </div>
+
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+      <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info" onclick="loginAdmin()">Login</button>
+  </form>
+</div>
+  

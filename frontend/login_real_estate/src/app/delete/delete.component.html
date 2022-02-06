@@ -1,0 +1,195 @@
+<div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <button routerLink="/postproperty"><i style="font-size:24px" class="fa">&#xf191;</i></button>
+  <div class="cont">
+    
+<form (ngSubmit)="saveProp()" #addForm=ngForm class="needs-validation">
+  
+  
+
+    <label>Location</label>
+    <input size="50" name="location" class="form-control" [(ngModel)]="pro.location" #location=ngModel required>
+    <div *ngIf="location.touched && location.dirty && location.invalid" class="alert alert-danger">
+      Location is not valid.
+    </div>
+  
+    <label>Address</label>
+    <input name="address" class="form-control" [(ngModel)]="pro.address" #address=ngModel required pattern="[A-Za-z]{3,}">
+    <div *ngIf="address.touched && address.dirty && address.invalid" class="alert alert-danger">
+      Address is not valid.
+    </div>
+  
+    <label>Property Category</label>
+    <input name="propertyCategory" class="form-control" [(ngModel)]="pro.propertyCategory" #propertyCategory=ngModel required pattern="[A-Za-z]{3,}">
+    <div *ngIf="propertyCategory.touched && propertyCategory.dirty && propertyCategory.invalid" class="alert alert-danger">
+      Property Category is not valid.
+    </div>
+  
+    <label>Property Type</label>
+    <input name="propertyType" class="form-control" [(ngModel)]="pro.propertyType" #propertyType=ngModel required pattern="[A-Za-z]{3,}">
+    <div *ngIf="propertyType.touched && propertyType.dirty && propertyType.invalid" class="alert alert-danger">
+      Property Type is not valid.
+    </div>
+  
+    <label>price</label>
+    <input name="price" class="form-control" [(ngModel)]="pro.price" #price=ngModel required pattern="[0-9]{1,}" >
+    <div *ngIf="price.touched && price.dirty && price.invalid" class="alert alert-danger">
+      Price is not valid.
+    </div>
+
+    <div class="form-group">
+      <label for="contact">Contact:</label>
+      <input type="text" class="form-control" placeholder="Enter Contact Number" name="contact" [(ngModel)]="pro.contact" required pattern="^[6-9]\d{9}$" #contact="ngModel"
+         [class.is-invalid]="contact.invalid && contact.touched">
+      <div *ngIf="contact.errors && (contact.invalid && contact.touched)">
+        <small class="text-danger" *ngIf="contact.errors.required">Contact is required field</small>
+        <small class="text-danger" *ngIf="contact.errors.pattern">Enter the valid contact"</small>
+      </div>
+    </div>
+  
+  <br>
+  
+    <button type="submit" class="btn btn-primary" >Update</button>
+  
+  </form>
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- <form (ngSubmit)="onSubmit()" #form="ngForm" class="container">
+    <div class="form-group">
+  
+      <input type="hidden" ngModel name="propertyId">
+  
+  
+      <label for="location">Location</label>
+      <input class="form-control" placeholder="Enter location" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #location="ngModel"
+        name="location" id="location">
+      <div *ngIf="form.submitted && location.invalid">
+        <div *ngIf="location.errors.required">Location is required!!</div>
+        <div *ngIf="location.errors.pattern">Location should be only alphanumeric</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input class="form-control" placeholder="Enter address" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #address="ngModel"
+        name="address" id="address">
+      <div *ngIf="form.submitted && address.invalid">
+        <div *ngIf="address.errors.required">address is required!!</div>
+        <div *ngIf="address.errors.pattern">address should be only alphanumeric</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="propertyCategory">propertyCategory</label>
+      <input class="form-control" placeholder="Enter propertyCategory" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #propertyCategory="ngModel"
+        name="propertyCategory" id="propertyCategory">
+      <div *ngIf="form.submitted && propertyCategory.invalid">
+        <div *ngIf="propertyCategory.errors.required">propertyCategory is required!!</div>
+        <div *ngIf="propertyCategory.errors.pattern">propertyCategory should be only alphanumeric</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="propertyType">propertyType</label>
+      <input class="form-control" placeholder="Enter propertyType" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #propertyType="ngModel"
+        name="propertyType" id="propertyType">
+      <div *ngIf="form.submitted && propertyType.invalid">
+        <div *ngIf="propertyType.errors.required">propertyType is required!!</div>
+        <div *ngIf="propertyType.errors.pattern">propertyType should be only alphanumeric</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="price">price</label>
+      <input class="form-control" placeholder="Enter price" required pattern="[1-5]{1}" type="number" name="price"
+        ngModel #price=ngModel id="price">
+      <div *ngIf="form.submitted && price.invalid">
+        <div *ngIf="price.errors.required">price is required!!</div>
+        <div *ngIf="price.errors.pattern">price needs to be a number eg .2 price is on scale 1-5 </div>
+      </div>
+    </div>
+  
+  
+  
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  
+  </form> -->
+  
+
+
+
+
+
+
+
+
+<!-- <form (ngSubmit)="onSubmit()" #form="ngForm" class="container">
+  <div class="form-group">
+
+    <input type="hidden" ngModel name="propertyId">
+
+
+    <label for="location">Location</label>
+    <input class="form-control" placeholder="Enter location" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #location="ngModel"
+      name="location" id="location">
+    <div *ngIf="form.submitted && location.invalid">
+      <div *ngIf="location.errors.required">Location is required!!</div>
+      <div *ngIf="location.errors.pattern">Location should be only alphanumeric</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input class="form-control" placeholder="Enter address" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #address="ngModel"
+      name="address" id="address">
+    <div *ngIf="form.submitted && address.invalid">
+      <div *ngIf="address.errors.required">address is required!!</div>
+      <div *ngIf="address.errors.pattern">address should be only alphanumeric</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="propertyCategory">propertyCategory</label>
+    <input class="form-control" placeholder="Enter propertyCategory" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #propertyCategory="ngModel"
+      name="propertyCategory" id="propertyCategory">
+    <div *ngIf="form.submitted && propertyCategory.invalid">
+      <div *ngIf="propertyCategory.errors.required">propertyCategory is required!!</div>
+      <div *ngIf="propertyCategory.errors.pattern">propertyCategory should be only alphanumeric</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="propertyType">propertyType</label>
+    <input class="form-control" placeholder="Enter propertyType" required pattern="[a-zA-z]*" minlength="3" type="text" ngModel #propertyType="ngModel"
+      name="propertyType" id="propertyType">
+    <div *ngIf="form.submitted && propertyType.invalid">
+      <div *ngIf="propertyType.errors.required">propertyType is required!!</div>
+      <div *ngIf="propertyType.errors.pattern">propertyType should be only alphanumeric</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">price</label>
+    <input class="form-control" placeholder="Enter price" required pattern="[1-5]{1}" type="number" name="price"
+      ngModel #price=ngModel id="price">
+    <div *ngIf="form.submitted && price.invalid">
+      <div *ngIf="price.errors.required">price is required!!</div>
+      <div *ngIf="price.errors.pattern">price needs to be a number eg .2 price is on scale 1-5 </div>
+    </div>
+  </div>
+
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form> -->
+

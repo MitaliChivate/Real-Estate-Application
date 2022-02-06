@@ -1,0 +1,17 @@
+<table class="table table-dark" style="border:1" >
+  <thead >
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Mobile Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of user">
+      <td>{{user.fullname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.mobileno}}</td>  
+    </tr>
+     <td><button class="btn btn-warning"  (click)="goback()"  >Go Back</button></td>
+  </tbody>
+</table>

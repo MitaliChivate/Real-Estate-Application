@@ -1,0 +1,26 @@
+.container {
+    /* The image used */
+    background-image: url("http://360propertymanagement.in/wp-content/uploads/2016/09/upld_450785994644707350_9972233_l2.jpg");
+  
+    /* Control the height of the image */
+    min-height: 800px;
+  min-width: 100%;
+    /* Center and scale the image nicely 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;*/
+  }
+  .input{
+    width: 40px;
+  }
+  /* Add styles to the form container */
+  .cont {
+    
+    position: absolute;
+    right: 400px;
+    margin: 100px;
+    max-width: 800px;
+    padding: 16px;
+    background-color: white;
+  }

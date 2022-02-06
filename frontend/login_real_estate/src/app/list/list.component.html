@@ -1,0 +1,28 @@
+<table class="table table-dark">
+    <tr>
+      <th>Customer Id</th>
+      <th>Property Id</th>
+      <th>Location</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th>Contact</th>
+    </tr>
+  
+  
+    <tr *ngFor="let pro of prop">
+      <td>{{pro.customerId}}</td>
+      <td>{{pro.propertyId}}</td>
+      <td>{{pro.location}}</td>
+      <td>{{pro.address}}</td>  
+      <td>{{pro.price}}</td>
+      <td>{{pro.propertyCategory}}</td>
+      <td>{{pro.propertyType}}</td>
+      <td>{{pro.contact}}</td>
+      <td><button class="btn btn-warning" (click)="remove(pro.propertyId)" >Delete</button></td>
+      <td><button class="btn btn-warning"  (click)="updateProp(pro)"  >Update</button></td>
+    </tr>
+    <td><button class="btn btn-warning"  (click)="goback()"  >Go Back</button></td>
+  </table>
+

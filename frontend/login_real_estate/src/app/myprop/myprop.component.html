@@ -1,0 +1,30 @@
+<div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+<table class="table table-dark">
+    <tr>
+      <th>User Id</th>
+      <th>Property Id</th>
+      <th>Location</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Type</th>
+    </tr>
+  
+  
+    <tr *ngFor="let pro of prop">
+      <td>{{pro.customerId}}</td>
+      <td>{{pro.propertyId}}</td>
+      <td>{{pro.location}}</td>
+      <td>{{pro.address}}</td>  
+      <td>{{pro.price}}</td>
+      <td>{{pro.propertyCategory}}</td>
+      <td>{{pro.propertyType}}</td>
+      <td><button class="btn btn-warning" (click)="remove(pro.propertyId)" >Delete</button></td>
+      <td><button class="btn btn-warning"  (click)="updateProp(pro)"  >Update</button></td>
+    </tr>
+    <td><button class="btn btn-warning"  (click)="goback()"  >Go Back</button></td>
+  </table>
+
+
